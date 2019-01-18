@@ -1,41 +1,31 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
 
-import entities.Product;
-import services.CalculationService;
+import entities.Circle;
+import entities.Rectangle;
+import entities.Shape;
 
 public class program {
 
 	public static void main(String[] args) {
-		Locale.setDefault(Locale.US);
-		Scanner sc = new Scanner(System.in);
-		List<Product> list = new ArrayList<>();
+		List<Shape> myShapes = new ArrayList<>();
+		myShapes.add(new Rectangle(3.0, 2.0));
+		myShapes.add(new Circle(2.0));
 		
-		String path = "C:\\temp\\in.txt";
+		List<Circle> myCircles = new ArrayList<>();
+		myCircles.add(new Circle(2.0));
+		myCircles.add(new Circle(3.0));
 		
-		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-			
-			String line = br.readLine();
-			while (line != null) {
-				String[] fields = line.split(",");
-				list.add(new Product(fields[0],Double.parseDouble(fields[1])));
-				line = br.readLine();
-			}
-			Product x = CalculationService.max(list);
-			System.out.println("Most expensive: ");
-			System.out.println(x);
-		} catch (IOException e) {
-			System.out.println("Error: " + e.getMessage());
-		}
-		
-		sc.close();
+		System.out.println("Total area: " + totalArea(myCircles));
 	}
-
+	
+	public static double totalArea(List<? extends Shape> list) {
+		double sum = 0.0;
+		for (Shape s: list) {
+			sum += s.area();
+		}
+		return sum;
+	}
 }
