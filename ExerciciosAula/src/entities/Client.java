@@ -2,9 +2,9 @@ package entities;
 
 public class Client {
 	private String name;
-	private String email;
+	private Double email;
 	
-	public Client(String name, String email) {
+	public Client(String name, Double email) {
 		this.name = name;
 		this.email = email;
 	}
@@ -17,11 +17,11 @@ public class Client {
 		this.name = name;
 	}
 
-	public String getEmail() {
+	public Double getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(Double email) {
 		this.email = email;
 	}
 

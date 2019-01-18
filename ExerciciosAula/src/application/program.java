@@ -1,45 +1,22 @@
 package application;
 
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
+
+import entities.Client;
 
 public class program {
 
 	public static void main(String[] args) {
-		/*
-		Set<String> set = new LinkedHashSet<>();
+		Set<Client> set = new HashSet<>();
 		
-		set.add("TV");
-		set.add("Tablet");
-		set.add("Notebook");
+		set.add(new Client("TV", 900.0));
+		set.add(new Client("Notebook", 1200.0));
+		set.add(new Client("Tablet", 400.0));
 		
+		Client clie = new Client("Notebook", 1200.0);
 		
-		System.out.println(set.contains("Notebook"));
+		System.out.println(set.contains(clie));
 		
-		set.removeIf(x -> x.charAt(0) == 'T'); //remover x tal que primeira letra seja igual T
-		//set.removeIf(x -> x.length() >= 3); //remover x tal que tamanho de x é maior ou igual a 3
-		
-		for (String p: set) {
-			System.out.println(p);
-		}*/
-		
-		Set<Integer> a = new TreeSet<>(Arrays.asList(0,2,4,5,6,8,10));
-		Set<Integer> b = new TreeSet<>(Arrays.asList(5,6,7,8,9,10));
-		
-		//union
-		Set<Integer> c = new TreeSet<>(a);
-		c.addAll(b);
-		System.out.println(c);
-		
-		//intersection
-		Set<Integer> d = new TreeSet<>(a);
-		d.retainAll(b);
-		System.out.println(d);
-		
-		//diference
-		Set<Integer> e = new TreeSet<>(a);
-		e.removeAll(b);
-		System.out.println(e);
 	}
 }
