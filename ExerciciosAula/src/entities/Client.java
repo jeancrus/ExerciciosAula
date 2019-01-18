@@ -1,6 +1,6 @@
 package entities;
 
-public class Client {
+public class Client implements Comparable<Client> {
 	private String name;
 	private Double email;
 	
@@ -54,6 +54,16 @@ public class Client {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Client [name=" + name + ", email=" + email + "]";
+	}
+
+	@Override
+	public int compareTo(Client other) {
+		return name.toUpperCase().compareTo(other.getName().toUpperCase());
 	}
 
 	
