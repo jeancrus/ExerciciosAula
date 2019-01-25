@@ -1,6 +1,6 @@
 package entities;
 
-public class Product {
+public class Product{
 	private String name;
 	private Double price;
 	public Product(String name, Double price) {
@@ -19,6 +19,12 @@ public class Product {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	
+	@Override
+	public String toString() {
+		return "Product [name=" + name + ", price=" + price + "]";
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
