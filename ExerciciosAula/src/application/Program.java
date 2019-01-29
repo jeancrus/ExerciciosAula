@@ -16,7 +16,7 @@ public class Program {
 		
 		Comparator<Product> comp = (p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
 		
-		list.sort((p1, p2) -> p1.getPrice().compareTo(p2.getPrice()));
+		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
 
 		for (Product product : list) {
 			System.out.println(product);
