@@ -1,25 +1,21 @@
 package application;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
-import entities.Product;
+import java.util.Arrays;
 
 public class Program {
+	public static int globalValue = 3;
 
 	public static void main(String[] args) {
-		List<Product> list = new ArrayList<>();
-		list.add(new Product("Tv", 900.0));
-		list.add(new Product("Notebook", 1200.0));
-		list.add(new Product("Tablet", 400.0));
-		
-		Comparator<Product> comp = (p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
-		
-		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
+		int[] vect = new int[] { 3, 4, 5 };
+		changeOddValues(vect);
+		System.out.println(Arrays.toString(vect));
+	}
 
-		for (Product product : list) {
-			System.out.println(product);
+	public static void changeOddValues(int[] numbers) {
+		for (int i = 0; i < numbers.length; i++) {
+			if (numbers[i] % 2 != 0) {
+				numbers[i] += globalValue;
+			}
 		}
 	}
 
